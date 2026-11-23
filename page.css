@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;700&display=swap');
 
 * {
@@ -11,14 +11,16 @@
 body {
   background: transparent;
   font-family: "Times New Roman", "IBM Plex Serif", serif;
-  color: #000;
+  color: #000000;
+  -webkit-font-smoothing: antialiased;
 }
 
 .page-wrap {
   width: 210mm;
   height: 297mm;
-  background: #fff;
+  background: #ffffff;
   position: relative;
+  overflow: hidden;
 }
 
 .inner-frame {
@@ -37,16 +39,16 @@ body {
   width:  calc(var(--page-width)  - var(--margin-left)   - var(--margin-right));
   height: calc(var(--page-height) - var(--margin-top)    - var(--margin-bottom));
 
-  border:  1.5mm solid #000;
+  border:  1.5mm solid #000000;
   padding: var(--padding);
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5mm;
+  gap: 4.5mm;
 }
 
-/* Banner */
+/* ── College Banner ──────────────────────────── */
 .banner-container {
   position: relative;
   width: 100%;
@@ -54,7 +56,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2mm;
+  margin-bottom: 1.5mm;
 }
 
 .banner-svg {
@@ -71,19 +73,21 @@ body {
   z-index: 2;
   text-align: center;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .dept-text {
   font-size: 5.5mm;
   margin-bottom: 2mm;
+  letter-spacing: 0.2px;
 }
 
 .college-text {
   font-size: 6.5mm;
+  letter-spacing: 0.2px;
 }
 
-/* Logo */
+/* ── College Emblem ──────────────────────────── */
 .logo-container {
   display: flex;
   justify-content: center;
@@ -96,32 +100,35 @@ body {
   object-fit: contain;
 }
 
-/* Lab Day */
+/* ── Lab Day ─────────────────────────────────── */
 .lab-day-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5mm;
+  margin-bottom: 4mm;
   gap: 2mm;
 }
+
 .lab-day-label {
   font-weight: 700;
   font-size: 5mm;
 }
+
 .lab-day-input {
   display: inline-block;
   width: 25mm;
   border-bottom: 1px solid #000;
   height: 5mm;
+  text-align: center;
 }
 
-/* Common Boxes */
+/* ── Content Boxes ───────────────────────────── */
 .border-box {
-  border: 1px solid #000;
+  border: 1px solid #000000;
   border-radius: 4mm;
-  padding: 4mm;
+  padding: 3.5mm 4mm;
   width: 100%;
-  margin-bottom: 1mm;
+  margin-bottom: 0.5mm;
 }
 
 .label {
@@ -131,11 +138,11 @@ body {
 }
 
 .line {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #000000;
   height: 4.5mm;
 }
 
-/* Info Box */
+/* ── Student Info Box ────────────────────────── */
 .info-row {
   display: flex;
   justify-content: space-between;
@@ -148,8 +155,9 @@ body {
 
 .info-field {
   display: flex;
-  flex: 1;
+  align-items: flex-end;
   margin-right: 4mm;
+  cursor: text;
 }
 
 .info-field:last-child {
@@ -166,18 +174,20 @@ body {
 }
 
 .roll-field {
-  flex: 0.8;
+  flex: 0.85;
 }
 
-/* Assignment Box */
+/* ── Assignment Info Box ─────────────────────── */
 .assignment-box {
-  padding-bottom: 5mm;
+  padding-bottom: 4mm;
 }
 
 .assignment-row {
   display: flex;
-  margin-bottom: 3.5mm;
+  align-items: flex-end;
+  margin-bottom: 3.2mm;
   width: 100%;
+  cursor: text;
 }
 
 .assignment-row:last-child {
@@ -197,15 +207,15 @@ body {
   width: 100%;
 }
 
-/* Blooms Box */
+/* ── Blooms Taxonomy Box ─────────────────────── */
 .blooms-box {
-  padding-bottom: 5mm;
+  padding-bottom: 4mm;
 }
 
 .blooms-label {
   font-weight: 700;
   font-size: 4.5mm;
-  margin-bottom: 3mm;
+  margin-bottom: 2.8mm;
 }
 
 .blooms-options {
@@ -220,52 +230,58 @@ body {
   gap: 1.5mm;
   font-weight: 700;
   font-size: 4mm;
+  cursor: pointer;
 }
 
-.checkbox {
-  display: none; /* Old checkbox span, not used anymore */
-}
-
-/* Interactive Fields */
+/* ── Interactive Blue Inputs ─────────────────── */
 .blue-input {
   background: transparent;
-  color: blue;
+  color: #0000ee;
   font-family: inherit;
-  font-size: 16px; /* Explicit default to be controlled by font size tool */
+  font-size: 4.5mm;
   font-weight: 700;
   outline: none;
   padding: 0 1mm;
   border-radius: 0;
   border: none;
 }
-.blue-input.line, .blue-input.flex-line, .blue-input.full-line, .blue-input.lab-day-input {
-  border-bottom: 1px solid #000 !important;
+
+.blue-input.line, 
+.blue-input.flex-line, 
+.blue-input.full-line, 
+.blue-input.lab-day-input {
+  border-bottom: 1px solid #000000 !important;
 }
 
+/* Interactive Checkboxes on Preview Page */
 input.blue-checkbox {
   appearance: none;
   -webkit-appearance: none;
-  width: 3.5mm;
-  height: 3.5mm;
-  border: 1px solid #000;
+  width: 4mm;
+  height: 4mm;
+  border: 1.2px solid #000000;
+  border-radius: 0.5mm;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   vertical-align: middle;
   position: relative;
+  background: #ffffff;
   margin-left: 1.5mm;
 }
 
 input.blue-checkbox:checked::after {
   content: '✔';
-  color: blue;
-  font-size: 3.5mm;
+  color: #0000ee;
+  font-size: 3.6mm;
   position: absolute;
-  top: -0.5mm;
+  top: -0.6mm;
   left: 0.2mm;
   font-weight: bold;
 }
 
-/* Signatures */
+/* ── Signatures ──────────────────────────────── */
 .signatures-container {
   width: 100%;
   margin-top: auto;
@@ -280,7 +296,7 @@ input.blue-checkbox:checked::after {
 }
 
 .top-sig-row {
-  margin-bottom: 12mm;
+  margin-bottom: 11mm;
 }
 
 .sig-block {
@@ -291,7 +307,7 @@ input.blue-checkbox:checked::after {
 
 .sig-dashed-line {
   width: 50mm;
-  border-bottom: 1px dashed #000;
+  border-bottom: 1px dashed #000000;
   margin-bottom: 1.5mm;
 }
 
@@ -299,21 +315,40 @@ input.blue-checkbox:checked::after {
   align-items: center;
 }
 
+/* ── Print Media Optimization ───────────────── */
 @media print {
-  body { margin: 0; }
-  .page-wrap { width: 210mm; height: 297mm; }
-  @page { size: A4; margin: 0; }
-  
-  input.blue-input {
-    color: blue !important;
-    border-bottom: 1px solid #000 !important;
+  body {
+    margin: 0 !important;
+    background: #ffffff !important;
   }
-  input.blue-checkbox {
-    border: 1px solid #000 !important;
+  
+  .page-wrap {
+    width: 210mm !important;
+    height: 297mm !important;
+    box-shadow: none !important;
+  }
+  
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  input.blue-input {
+    color: #0000ee !important;
+    border-bottom: 1px solid #000000 !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
+
+  input.blue-checkbox {
+    border: 1.2px solid #000000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
   input.blue-checkbox:checked::after {
-    color: blue !important;
+    color: #0000ee !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }

@@ -2,136 +2,287 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Front Page Generator for KGEC Students</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>HETC Front Page Generator | Hooghly Engineering & Technology College</title>
+  <meta name="description" content="Design and customize official HETC assignment front pages with live preview, real-time two-way sync, and print-ready PDF export.">
+  <meta name="author" content="Ankit Gupta, Dwaipayan Datta">
+  <meta property="og:title" content="HETC Front Page Generator">
+  <meta property="og:description" content="Official front page generator for Hooghly Engineering & Technology College students.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="logo_new.svg">
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 
-<!-- Header -->
+<!-- Top Navigation Bar -->
 <header class="app-header">
-  <div class="app-title">
-    <i class="bi bi-layout-text-sidebar"></i>
-    <span>Front Page Generator</span>
+  <div class="app-brand">
+    <img src="logo_new.svg" alt="HETC College Logo" class="brand-logo">
+    <div class="brand-info">
+      <div class="brand-title-row">
+        <h1 class="brand-title">HETC Front Page Generator</h1>
+        <span class="brand-tag">CSE</span>
+      </div>
+      <span class="brand-subtitle">Hooghly Engineering & Technology College</span>
+    </div>
   </div>
+
   <div class="app-actions">
-    <a href="https://github.com/researcherankit/hetc-front-page-generator" target="_blank" class="star-btn">
+    <a href="https://github.com/researcherankit/hetc-front-page-generator" target="_blank" rel="noopener noreferrer" class="star-btn" title="Star this repository on GitHub">
       <i class="bi bi-github"></i>
       <span>Star on GitHub</span>
+      <i class="bi bi-star-fill star-icon-gold"></i>
     </a>
     <span class="header-divider"></span>
     <span class="header-meta">
       Made with <i class="bi bi-heart-fill heart-icon"></i> by
-      <a href="https://dwaidatta.in/" target="_blank" class="meta-link">Dwaipayan Datta</a> X <a href="https://github.com/researcherankit" target="_blank" class="meta-link">Ankit Gupta</a>
+      <a href="https://dwaidatta.in/" target="_blank" rel="noopener noreferrer" class="meta-link">Dwaipayan Datta</a>
+      <span class="meta-separator">✕</span>
+      <a href="https://github.com/researcherankit" target="_blank" rel="noopener noreferrer" class="meta-link">Ankit Gupta</a>
     </span>
   </div>
 </header>
 
-<!-- Main -->
+<!-- Main Workspace -->
 <main class="app-main">
 
-  <section class="page-pane">
+  <!-- A4 Live Preview Pane -->
+  <section class="page-pane" aria-label="A4 Front Page Preview">
+    <div class="preview-toolbar">
+      <div class="preview-badge">
+        <i class="bi bi-file-earmark-check"></i>
+        <span>Live A4 Preview</span>
+      </div>
+      <div class="preview-tip">
+        <i class="bi bi-pencil-square"></i>
+        <span>Click directly on the page to type in blue</span>
+      </div>
+    </div>
+    
     <div class="page-frame-wrap">
-      <iframe id="page-frame" src="page.html?v=2" scrolling="no"></iframe>
+      <iframe id="page-frame" src="page.html?v=5" scrolling="no" title="Front page preview"></iframe>
     </div>
   </section>
 
-  <aside class="control-pane">
+  <!-- Side Control Panel -->
+  <aside class="control-pane" aria-label="Page Settings">
 
+    <!-- Section 1: PAGE BORDERS -->
     <div class="control-section">
-      <h2 class="section-title">
-        <i class="bi bi-aspect-ratio"></i>
-        <span>PAGE BORDERS</span>
-      </h2>
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="bi bi-aspect-ratio"></i>
+          <span>PAGE BORDERS</span>
+        </h2>
+      </div>
       <div class="grid-2">
-        <label>Left (mm)<input type="number" id="margin-left" value="15"></label>
-        <label>Right (mm)<input type="number" id="margin-right" value="15"></label>
-        <label>Top (mm)<input type="number" id="margin-top" value="15"></label>
-        <label>Bottom (mm)<input type="number" id="margin-bottom" value="15"></label>
+        <div class="field-item">
+          <label for="margin-left">Left</label>
+          <div class="input-with-unit">
+            <input type="number" id="margin-left" value="15" min="0" max="50">
+            <span class="unit">mm</span>
+          </div>
+        </div>
+        <div class="field-item">
+          <label for="margin-right">Right</label>
+          <div class="input-with-unit">
+            <input type="number" id="margin-right" value="15" min="0" max="50">
+            <span class="unit">mm</span>
+          </div>
+        </div>
+        <div class="field-item">
+          <label for="margin-top">Top</label>
+          <div class="input-with-unit">
+            <input type="number" id="margin-top" value="15" min="0" max="50">
+            <span class="unit">mm</span>
+          </div>
+        </div>
+        <div class="field-item">
+          <label for="margin-bottom">Bottom</label>
+          <div class="input-with-unit">
+            <input type="number" id="margin-bottom" value="15" min="0" max="50">
+            <span class="unit">mm</span>
+          </div>
+        </div>
       </div>
     </div>
 
+    <!-- Section 2: FONT SIZE -->
     <div class="control-section">
-      <h2 class="section-title">
-        <i class="bi bi-fonts"></i>
-        <span>FONT SIZE</span>
-      </h2>
-      <div class="font-size-row">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="bi bi-fonts"></i>
+          <span>FONT SIZE</span>
+        </h2>
+      </div>
+      <div class="font-size-control">
         <span class="fs-label">Input</span>
-        <button class="btn-fs" data-dir="-0.5"><i class="bi bi-dash-circle"></i></button>
-        <span class="fs-value" id="fs-inputs">4.5</span>
-        <button class="btn-fs" data-dir="0.5"><i class="bi bi-plus-circle"></i></button>
-        <span class="fs-unit">mm</span>
+        <div class="fs-adjuster">
+          <button class="btn-fs" data-dir="-0.5" aria-label="Decrease font size" title="Decrease font size">
+            <i class="bi bi-dash"></i>
+          </button>
+          <div class="fs-display">
+            <span class="fs-value" id="fs-inputs">4.5</span>
+            <span class="fs-unit">mm</span>
+          </div>
+          <button class="btn-fs" data-dir="0.5" aria-label="Increase font size" title="Increase font size">
+            <i class="bi bi-plus"></i>
+          </button>
+        </div>
       </div>
     </div>
 
+    <!-- Section 3: DETAILS -->
     <div class="control-section">
-      <h2 class="section-title">
-        <i class="bi bi-card-text"></i>
-        <span>Details</span>
-      </h2>
-      <div id="details-list" style="display:flex; flex-direction:column; gap:4px;">
-        <input type="text" class="side-input" data-target="lab-day-input" placeholder="Lab Day">
-        <input type="text" class="side-input" data-target="name-input" placeholder="Name">
-        <input type="text" class="side-input" data-target="roll-input" placeholder="Roll">
-        <input type="text" class="side-input" data-target="paper-name-input" placeholder="Paper Name">
-        <input type="text" class="side-input" data-target="paper-code-input" placeholder="Paper Code">
-        <input type="text" class="side-input" data-target="dept-input" placeholder="Department">
-        <input type="text" class="side-input" data-target="year-input" placeholder="Year">
-        <input type="text" class="side-input" data-target="title-input-1" placeholder="Title Line 1">
-        <input type="text" class="side-input" data-target="title-input-2" placeholder="Title Line 2">
-        <input type="text" class="side-input" data-target="learning-input-1" placeholder="Learning Line 1">
-        <input type="text" class="side-input" data-target="learning-input-2" placeholder="Learning Line 2">
-        <input type="text" class="side-input" data-target="learning-input-3" placeholder="Learning Line 3">
-        <div style="font-weight: bold; margin-top: 8px;">Blooms Taxonomy:</div>
-        <label><input type="checkbox" class="side-checkbox" data-target="bloom-remember"> Remember</label>
-        <label><input type="checkbox" class="side-checkbox" data-target="bloom-understand"> Understand</label>
-        <label><input type="checkbox" class="side-checkbox" data-target="bloom-apply"> Apply</label>
-        <label><input type="checkbox" class="side-checkbox" data-target="bloom-analyze"> Analyze</label>
-        <label><input type="checkbox" class="side-checkbox" data-target="bloom-evaluate"> Evaluate</label>
-        <label><input type="checkbox" class="side-checkbox" data-target="bloom-create"> Create</label>
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="bi bi-card-text"></i>
+          <span>DETAILS</span>
+        </h2>
+        <span class="sync-badge" title="Two-way sync active between preview & side panel">
+          <i class="bi bi-arrow-left-right"></i> Real-time Sync
+        </span>
+      </div>
+
+      <div id="details-list" class="details-form">
+        <!-- Lab Day -->
+        <div class="field-item">
+          <label>Lab Day</label>
+          <input type="text" class="side-input" data-target="lab-day-input" placeholder="e.g. 3">
+        </div>
+
+        <!-- Student Info -->
+        <div class="grid-2">
+          <div class="field-item">
+            <label>Name</label>
+            <input type="text" class="side-input" data-target="name-input" placeholder="Student Name">
+          </div>
+          <div class="field-item">
+            <label>Roll</label>
+            <input type="text" class="side-input" data-target="roll-input" placeholder="Roll Number">
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field-item">
+            <label>Paper Name</label>
+            <input type="text" class="side-input" data-target="paper-name-input" placeholder="Paper Name">
+          </div>
+          <div class="field-item">
+            <label>Paper Code</label>
+            <input type="text" class="side-input" data-target="paper-code-input" placeholder="Paper Code">
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field-item">
+            <label>Department</label>
+            <input type="text" class="side-input" data-target="dept-input" placeholder="Department">
+          </div>
+          <div class="field-item">
+            <label>Year</label>
+            <input type="text" class="side-input" data-target="year-input" placeholder="Year / Sem">
+          </div>
+        </div>
+
+        <!-- Assignment Title -->
+        <div class="field-item">
+          <label>Title of Assignment / Work</label>
+          <input type="text" class="side-input mb-xs" data-target="title-input-1" placeholder="Title Line 1">
+          <input type="text" class="side-input" data-target="title-input-2" placeholder="Title Line 2">
+        </div>
+
+        <!-- Learning Outcomes -->
+        <div class="field-item">
+          <label>Learning Outcomes</label>
+          <input type="text" class="side-input mb-xs" data-target="learning-input-1" placeholder="Learning Line 1">
+          <input type="text" class="side-input mb-xs" data-target="learning-input-2" placeholder="Learning Line 2">
+          <input type="text" class="side-input" data-target="learning-input-3" placeholder="Learning Line 3">
+        </div>
+
+        <!-- Blooms Taxonomy -->
+        <div class="blooms-wrapper">
+          <label class="group-label">Blooms Taxonomy Level Satisfy:</label>
+          <div class="blooms-grid">
+            <label class="bloom-chip">
+              <input type="checkbox" class="side-checkbox" data-target="bloom-remember">
+              <span class="chip-text">Remember</span>
+            </label>
+            <label class="bloom-chip">
+              <input type="checkbox" class="side-checkbox" data-target="bloom-understand">
+              <span class="chip-text">Understand</span>
+            </label>
+            <label class="bloom-chip">
+              <input type="checkbox" class="side-checkbox" data-target="bloom-apply">
+              <span class="chip-text">Apply</span>
+            </label>
+            <label class="bloom-chip">
+              <input type="checkbox" class="side-checkbox" data-target="bloom-analyze">
+              <span class="chip-text">Analyze</span>
+            </label>
+            <label class="bloom-chip">
+              <input type="checkbox" class="side-checkbox" data-target="bloom-evaluate">
+              <span class="chip-text">Evaluate</span>
+            </label>
+            <label class="bloom-chip">
+              <input type="checkbox" class="side-checkbox" data-target="bloom-create">
+              <span class="chip-text">Create</span>
+            </label>
+          </div>
+        </div>
       </div>
     </div>
 
+    <!-- Section 4: PDF Export Action (Sticky Footer) -->
     <div class="control-section control-section--footer">
       <div class="pdf-name-row">
-        <input type="text" id="pdf-filename" placeholder="File name (optional)">
+        <label for="pdf-filename" class="field-label-small">PDF File Name</label>
+        <div class="filename-input-wrap">
+          <i class="bi bi-file-earmark-text"></i>
+          <input type="text" id="pdf-filename" placeholder="HETC_Front_Page (optional)">
+          <span class="ext-badge">.pdf</span>
+        </div>
       </div>
-      <button id="download-pdf" class="btn-primary">
+      <button id="download-pdf" class="btn-primary" type="button">
         <i class="bi bi-download"></i>
         <span>Save as PDF</span>
       </button>
+      <div class="export-note">
+        <i class="bi bi-info-circle"></i> In the print window, choose <strong>Save as PDF</strong>.
+      </div>
     </div>
 
   </aside>
 </main>
 
-<!-- Star popup -->
+<!-- Star Popup Modal -->
 <div class="star-popup" id="star-popup">
   <div class="star-popup-card">
-    <i class="bi bi-star-fill"></i>
+    <div class="star-icon-wrap">
+      <i class="bi bi-star-fill"></i>
+    </div>
     <h3>Found this useful?</h3>
-    <p>It takes 2 seconds and means a lot! Star the repo to show your support.</p>
+    <p>It takes 2 seconds and helps fellow HETC students find this tool! Star the repo on GitHub.</p>
     <div class="star-popup-actions">
-      <a href="https://github.com/researcherankit/hetc-front-page-generator" target="_blank" class="btn-star-action">
+      <a href="https://github.com/researcherankit/hetc-front-page-generator" target="_blank" rel="noopener noreferrer" class="btn-star-action">
         <i class="bi bi-github"></i>
         <span>Star on GitHub</span>
       </a>
-      <button class="btn-ghost" id="star-popup-close">
-        <i class="bi bi-x"></i>
+      <button class="btn-ghost" id="star-popup-close" type="button">
+        <i class="bi bi-x-lg"></i>
         <span>Maybe later</span>
       </button>
     </div>
   </div>
 </div>
 
-<script src="script.js?v=3"></script>
-<script>
-  if (window.location.protocol === 'file:') {
-    alert('Two-way sync and PDF saving will NOT work when running this file directly from your computer (file:// protocol). Please use the localhost server: http://localhost:8000/index.html');
-  }
-</script>
+<script src="script.js?v=5"></script>
 </body>
 </html>
